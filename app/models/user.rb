@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
   def kleines_r;
     'r'
   end
+
+  def if_reporting
+    # code here
+    1
+  end
 end

@@ -13,6 +13,13 @@ FactoryGirl.define do
 
 end
 
+describe 'reporting' do
+  it 'should have a reporting-interface' do
+    u=User.new
+    u.if_reporting.should_not be nil?
+  end
+end
+
 describe 'user stuff' do
 
   it 'should have name factored' do
@@ -40,5 +47,6 @@ describe 'user stuff' do
   it 'should test when file gets saved' do
     Rails.logger.info 'testing '*5
   end
+
 
 end
