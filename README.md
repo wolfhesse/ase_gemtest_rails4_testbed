@@ -1,10 +1,9 @@
 - logging
-
-cp .. checkpoint
-wp .. waypoint
+    - cp .. checkpoint
+    - wp .. waypoint
 
 - cmdline aliases
-be .. bundle exec
+    - be .. bundle exec
 
 - conf
     - have databases, rake db:migrate
