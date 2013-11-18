@@ -37,4 +37,8 @@ describe 'user stuff' do
     User.new.grosses_a.should eq 'A'
   end
 
+  it 'should test when file gets saved' do
+    Rails.logger.info 'testing '*5
+  end
+
 end
