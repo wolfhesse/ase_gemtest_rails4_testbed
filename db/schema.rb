@@ -13,16 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20131118162510) do
 
-  create_table 'events', force: true do |t|
-    t.boolean 'rogera'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
+  create_table "events", force: true do |t|
+    t.boolean  "rogera"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table 'users', force: true do |t|
-    t.string 'name'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
