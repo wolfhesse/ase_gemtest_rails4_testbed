@@ -1,7 +1,6 @@
 - logging
-
-cp .. checkpoint
-wp .. waypoint
+    - cp .. checkpoint
+    - wp .. waypoint
 
 - cmdline aliases
 be .. bundle exec
