@@ -62,7 +62,7 @@ group :development, :test do
   gem 'spork-rails'
   #gem 'guard-test', :require => false
   gem 'guard-minitest', :require => false
-  gem 'guard-rspec' #, :require => false
+  gem 'guard-rspec', :require => false
   #gem 'guard-sporkminitest'
   gem 'guard', :require => false
 
