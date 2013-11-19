@@ -1,7 +1,6 @@
+require 'noise_support'
 class User < ActiveRecord::Base
-  def noisy?;
-    false
-  end
+  include NoiseSupport
 
   def grosses_a;
     'A'

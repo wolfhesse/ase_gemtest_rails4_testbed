@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+def noisy?
+  false
+end
+
 FactoryGirl.define do
 
   sequence :user_login do |n|
@@ -13,12 +17,6 @@ FactoryGirl.define do
 
 end
 
-describe 'reporting' do
-  it 'should have a reporting-interface' do
-    u=User.new
-    u.if_reporting.should_not be nil?
-  end
-end
 
 describe 'user stuff' do
 
@@ -45,8 +43,43 @@ describe 'user stuff' do
   end
 
   it 'should test when file gets saved' do
-    Rails.logger.info 'testing '*5
+    Rails.logger.info 'testing user spec 23 '*5
   end
 
+
+end
+
+describe 'noise support' do
+  specify 'user has noisy? call' do
+    u=User.new
+    # inq noise support level (_core_na, :spec_user_noise_support_ok, :spec_user_noise_support_level2, :spec_user_noise_asklevel_support)
+    if u.respond_to? :noisy_inf
+      Rails.logger.info u.noisy_inf
+    else
+      # support older version / core
+      begin
+        u.noisy?
+        Rails.logger.info spec_user_noise_support: :ok
+      rescue
+        assert false
+      end
+    end
+  end
+end
+describe 'reporting' do
+  it 'should have a reporting-interface' do
+    u=User.new
+    u.if_reporting.should_not be nil?
+  end
+
+  specify 'able to write file ' do
+    puts 'i write' if noisy?
+    begin
+      Rails.logger.info 'i write'
+      Rails.logger.debug 'i debug'
+      Rails.logger.error 'i err'
+      Rails.logger.fatal 'fatal? not me.'
+    end if noisy?
+  end
 
 end
