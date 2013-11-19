@@ -80,6 +80,21 @@ describe 'reporting' do
       Rails.logger.error 'i err'
       Rails.logger.fatal 'fatal? not me.'
     end if noisy?
+
+    u=User.new name: 'terminal23'
+    expect(u.report_to('/tmp/user.json')).to eq :ack
+    # and the file should exist
+    File.exist?('/tmp/user.json').should eq true
+    if  File.exist?('/tmp/user.json')
+      # debug
+      File.open('/tmp/user.json', 'r') { |f|
+        Rails.logger.info 'terminal23'*5
+        Rails.logger.info f.readlines
+        f.close
+      }
+      expect(File.delete('/tmp/user.json')).to eq 1
+    end
   end
+
 
 end

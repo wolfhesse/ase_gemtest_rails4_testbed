@@ -22,4 +22,16 @@ class User < ActiveRecord::Base
     # code here
     1
   end
+
+  def report_to(path)
+    begin
+      File.open(path,'w') {|f|
+        f.write(self.inspect)
+        f.close
+      }
+    rescue
+      :nak
+    end
+    :ack
+  end
 end
